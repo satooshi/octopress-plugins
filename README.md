@@ -3,11 +3,11 @@ octopress-plugins
 
 Octopress plugins
 
-# Spaceless
+# Spaceless block tag
 
 This plugin strips all white spaces between html tags.
 
-# usage
+## usage
 
 ```html
 {% spaceless %}
