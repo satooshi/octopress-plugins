@@ -16,3 +16,9 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+# eclipse
+.buildpath
+.project
+.settings/
+
