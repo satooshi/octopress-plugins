@@ -5,7 +5,7 @@ Octopress plugins
 
 # Spaceless block tag
 
-This plugin strips all white spaces between html tags.
+This plugin strips all white spaces between html tags. And pre tags contents will be kept as it is.
 
 ## prerequisite
 
@@ -42,6 +42,14 @@ bundle install
 
         <h1>Hello world!</h1>
 
+        <pre>
+            <code>
+Hello world!
+
+  Here's sample code
+
+            </code>
+        </pre>
     </body>
 </html>
 
@@ -52,5 +60,14 @@ bundle install
 result in:
 
 ```html
-<html><head><title>spaceless sample html</title></head><body><h1>Hello world!</h1></body></html>
+<html><head><title>spaceless sample html</title></head><body><h1>Hello world!</h1><pre>
+    <code>
+
+Hello world!
+
+  Here's sample code
+
+    </code>
+</pre>
+</body></html>
 ```
