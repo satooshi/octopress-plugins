@@ -60,7 +60,7 @@ Hello world!
 result in:
 
 ```html
-<html><head><title>spaceless sample html</title></head><body><h1>Hello world!</h1><pre>
+<!DOCTYPE html><html><head><title>spaceless sample html</title></head><body><h1>Hello world!</h1><pre>
     <code>
 
 Hello world!
