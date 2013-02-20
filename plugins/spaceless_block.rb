@@ -5,7 +5,7 @@ class Spaceless < Liquid::Block
     output = super
 
     uuid = UUID.new
-    regex = /(<pre\s+(?:.*)>(?!.*<pre\s+(?:.*)>.*<\/pre>.*).*<\/pre>)/miu
+    regex = /((<pre\s+.*>|<pre>)(?!.*(<pre\s+.*>|<pre>).*<\/pre>.*).*<\/pre>)/miu
 
     hash = Hash.new
 
@@ -15,9 +15,6 @@ class Spaceless < Liquid::Block
       output.sub!(regex, replace)
       hash[replace] = $&
     end
-
-    #p hash
-    #p output
 
     output.gsub!(/>\s+</, '><').gsub(/\s+<\!/,'<!').gsub(/<\/html>\s+/, '</html>')
 
