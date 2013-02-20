@@ -1,8 +1,31 @@
+require 'uuid'
+
 class Spaceless < Liquid::Block
   def render(context)
     output = super
 
-    %|#{output.gsub(/>\s+</, '><').gsub(/\s+<\!/,'<!').gsub(/<\/html>\s+/, '</html>')}|
+    uuid = UUID.new
+    regex = /(<pre\s+(?:.*)>(?!.*<pre\s+(?:.*)>.*<\/pre>.*).*<\/pre>)/miu
+
+    hash = Hash.new
+
+    while !output.scan(regex).empty?
+      replace = '___pre___' + uuid.generate
+
+      output.sub!(regex, replace)
+      hash[replace] = $&
+    end
+
+    #p hash
+    #p output
+
+    output.gsub!(/>\s+</, '><').gsub(/\s+<\!/,'<!').gsub(/<\/html>\s+/, '</html>')
+
+    hash.each{|key, value|
+      output.sub!(key, value)
+    }
+
+    %|#{output}|
   end
 end
 

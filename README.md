@@ -7,6 +7,27 @@ Octopress plugins
 
 This plugin strips all white spaces between html tags.
 
+## prerequisite
+
+This plugin requires [uuid](https://rubygems.org/gems/uuid).
+
+```sh
+gem install uuid
+```
+
+or add the following line to you Gemfile.
+
+```sh
+# Gemfile
+gem "uuid"
+```
+
+and then:
+
+```sh
+bundle install
+```
+
 ## usage
 
 ```html
