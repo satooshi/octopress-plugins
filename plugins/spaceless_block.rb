@@ -16,7 +16,7 @@ class Spaceless < Liquid::Block
       hash[replace] = $&
     end
 
-    output.gsub!(/>\s+</, '><').gsub(/\s+<\!/,'<!').gsub(/<\/html>\s+/, '</html>')
+    output.gsub!(/>\s+</, '><').gsub!(/\s+<\!/,'<!').gsub!(/<\/html>\s+/, '</html>')
 
     hash.each{|key, value|
       output.sub!(key, value)
